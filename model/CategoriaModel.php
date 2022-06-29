@@ -1,6 +1,6 @@
 <?php
 
-    require "../config/Conexao.php";
+    require "config/Conexao.php";
 
     class CategoriaModel{
         private $conexao;
