@@ -24,10 +24,45 @@
             include "view/template/rodape.php";
         }
 
+        function editar($id){
+            $categoria = $this->modelo->buscarPorId($id);
+            include "view/template/cabecalho.php";
+            include "view/template/menu.php";
+            include "view/categoria/form.php";
+            include "view/template/rodape.php";
+        }
+
         function excluir($id){
-            echo "excluir categoria";
+            $this->modelo->excluir($id);
+            header('Location: ?c=categoria');
+        }
+
+        function inserir(){
+            if(isset($_POST['categoria']) && !empty($_POST['categoria'])){
+                $this->modelo->inserir($_POST['categoria']);
+                header('Location: ?c=categoria');
+            }else{
+                echo "Ocorreu um erro, pois os dados não foram enviados";
+            }
+        }
+
+        function salvar(){
+            if(isset($_POST['categoria']) && !empty($_POST['categoria'])){
+                if(!empty($_POST['idcategoria'])){
+                    $this->modelo->inserir($_POST['categoria']);
+                }else{
+                    $this->modelo->atualizar($_POST['idcategoria'], $_POST['categoria']);
+                }
+
+                
+                header('Location: ?c=categoria');
+            }else{
+                echo "Ocorreu um erro, pois os dados não foram enviados";
+            }
         }
     }
+
+    
 
     //
     //$categoria->inserir("SmartTV");

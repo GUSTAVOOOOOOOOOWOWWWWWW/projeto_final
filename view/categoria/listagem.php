@@ -3,6 +3,8 @@
     <h1 class="mt-2">Relação de Categoria</h1>
     <hr>
 
+    <a href="<?= base_url() . "?c=categoria&m=add"?>" class="btn btn-sucess">Inserir Categoria</a>
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -15,13 +17,10 @@
             <tr>
                 <td><?= $categoria["nome"] ?></td>
                 <td>
-                    <a href="<?php echo base_url() . "?c=categoria&m=excluir&id=" . $categoria['idcategoria']; ?>" 
-                    class="btn btn-danger" title="Excluir">
-                        <i class="fa-solid fa-trash-can"></i> 
+                    <a href="<?php echo base_url() . "?c=categoria&m=excluir&id=" . $categoria['idcategoria']; ?>"class="btn btn-danger" title="Excluir"><i class="fa-solid fa-trash-can"></i>
                         Excluir
                     </a>
-                    <a href="" class="btn btn-primary" title="Editar">
-                        <i class="fa-solid fa-pencil"></i> 
+                    <a href="<?php echo base_url() . "?c=categoria&m=editar&id=" . $categoria['idcategoria']; ?>" class="btn btn-primary" title="Editar"><i class="fa-solid fa-pencil"></i> 
                         Editar
                     </a>
                 </td>
