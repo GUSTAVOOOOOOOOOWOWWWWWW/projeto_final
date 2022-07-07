@@ -1,6 +1,6 @@
 <?php
 
-    require "model/CategoriaModel.php";
+    require_once "model/CategoriaModel.php";
 
     class Categoria{
         function __construct()

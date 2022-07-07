@@ -6,12 +6,12 @@
         
         <div class="mb-3">
             <label for="login" class="form-label">Login</label>
-            <input type="email" class="form-control" id="login" name="login" value="<?= $usuario['login'] ?? '' ?>">
+            <input type="email" class="form-control" id="login" name="login" value="<?= $usuario['login'] ?? '' ?>" <?= isset($usuario) ? "readonly" : "" ?>>
         </div>
 
         <div class="mb-3">
             <label for="senha" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha" value="<?= $usuario['senha'] ?? '' ?>">
+            <input type="password" class="form-control" id="senha" name="senha">
         </div>
 
         <input type="hidden" name="idusuario" value="<?= $usuario['idusuario'] ?? '' ?>">

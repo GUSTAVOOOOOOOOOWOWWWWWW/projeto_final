@@ -1,6 +1,6 @@
 <?php
 
-require "model/UsuarioModel.php";
+require_once "model/UsuarioModel.php";
 
 class Usuario
 {
