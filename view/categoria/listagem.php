@@ -3,7 +3,7 @@
     <h1 class="mt-2">Relação de Categoria</h1>
     <hr>
 
-    <a href="<?= base_url() . "?c=categoria&m=add"?>" class="btn btn-sucess">Inserir Categoria</a>
+    <a href="<?= base_url() . "?c=categoria&m=add"?>" class="btn btn-success">Inserir Categoria</a>
 
     <table class="table table-hover">
         <thead>

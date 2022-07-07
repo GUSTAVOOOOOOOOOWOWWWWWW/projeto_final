@@ -37,24 +37,13 @@
             header('Location: ?c=categoria');
         }
 
-        function inserir(){
-            if(isset($_POST['categoria']) && !empty($_POST['categoria'])){
-                $this->modelo->inserir($_POST['categoria']);
-                header('Location: ?c=categoria');
-            }else{
-                echo "Ocorreu um erro, pois os dados não foram enviados";
-            }
-        }
-
         function salvar(){
             if(isset($_POST['categoria']) && !empty($_POST['categoria'])){
-                if(!empty($_POST['idcategoria'])){
+                if(empty($_POST['idcategoria'])){
                     $this->modelo->inserir($_POST['categoria']);
                 }else{
                     $this->modelo->atualizar($_POST['idcategoria'], $_POST['categoria']);
-                }
-
-                
+                }                
                 header('Location: ?c=categoria');
             }else{
                 echo "Ocorreu um erro, pois os dados não foram enviados";

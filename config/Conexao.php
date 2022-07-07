@@ -5,9 +5,9 @@
             $conexao = new mysqli(
                 "localhost",
                 "root",
-                "",
+                "info",
                 "db_catalogo_3e1",
-                3366
+                3306
             );
     
             if($conexao->connect_error){
