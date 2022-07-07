@@ -10,15 +10,20 @@
 
                 <?php foreach ($categorias as $categoria) : ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= base_url() . "?c=home&m=ver&id=".$categoria['idcategoria'] ?>">
+                        <a class="nav-link active" aria-current="page" href="<?= base_url() . "?c=home&m=index&id=" . $categoria['idcategoria'] ?>">
                             <?= $categoria['nome'] ?>
                         </a>
                     </li>
                 <?php endforeach; ?>
 
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="<?= base_url() . "?c=restrito&m=login" ?>">
+                        Acesso Restrito
+                    </a>
+                </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" method="POST" action="<?= base_url() . "?c=home&m=search" ?>">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>

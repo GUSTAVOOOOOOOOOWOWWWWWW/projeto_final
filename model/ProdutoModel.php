@@ -41,6 +41,29 @@
             return null;
         }
 
+        function buscarPorCategoria($idcategoria){
+            $sql = "select * from produto where categoria_idcategoria = ?";
+            $comando = $this->conexao->prepare($sql);
+            $comando->bind_param("i", $idcategoria);
+            if($comando->execute()){
+                $resultados = $comando->get_result();
+                return $resultados->fetch_all(MYSQLI_ASSOC);
+            }
+            return null;
+        }
+
+        function buscarPorLikeNome($nome){
+            $sql = "select * from produto where nome like ?";
+            $comando = $this->conexao->prepare($sql);
+            $nome = "%$nome%";
+            $comando->bind_param("s", $nome);
+            if($comando->execute()){
+                $resultados = $comando->get_result();
+                return $resultados->fetch_all(MYSQLI_ASSOC);
+            }
+            return null;
+        }
+
         function buscarPorTodas(){
             $sql = "select * from produto";
             $comando = $this->conexao->prepare($sql);
