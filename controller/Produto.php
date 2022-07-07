@@ -44,7 +44,7 @@
             if(isset($_FILES['foto']) && !$_FILES['foto']['error']){
                 $nome_imagem = time() . $_FILES['foto']['name'];
                 $origem = $_FILES['foto']['tmp_name'];
-                $destino = "./fotos/$nome_imagem";
+                $destino = "fotos/$nome_imagem";
                 if(move_uploaded_file($origem, $destino)){
                     return $destino;
                 }
@@ -53,14 +53,14 @@
         }
 
         function salvar(){
-            echo $this->salvar_foto();
             if(isset($_POST['nome']) && !empty($_POST['nome'])){
+                $nome_foto = $this->salvar_foto() ?? "foto/semfoto.jpg";
                 if(empty($_POST['idproduto'])){
                     $this->modelo->inserir(
                         $_POST['nome'], 
                         $_POST['descricao'], 
                         $_POST['preco'], 
-                        "fsfrafd.png", 
+                        $nome_foto,
                         $_POST['categoria']
                     );
                 }else{
@@ -69,7 +69,7 @@
                         $_POST['nome'], 
                         $_POST['descricao'], 
                         $_POST['preco'], 
-                        "fsfrafd.png", 
+                        $nome_foto, 
                         $_POST['categoria']
                     );
                 }                
